@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Joan Pujols</title>
+  <meta name="description" content="Linux at home, security by day, late nights building games." />
+  <meta name="theme-color" content="#336633" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="rain" aria-hidden="true"></canvas>
+  <main>
+    <header class="hero">
+      <p class="kicker">joanpujols.com</p>
+      <h1>Joan Pujols</h1>
+      <p class="tagline">Linux at home. Security by day. Late nights building games.</p>
+      <p class="sub">The feed thinks I'm mysterious. I'm just debugging.</p>
+      <nav class="links">
+        <a href="https://x.com/Syx3k5" rel="me">X / @Syx3k5</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+      </nav>
+    </header>
+
+    <section id="about">
+      <h2>About</h2>
+      <p>Security engineer by day. Builder by night. Ships on Linux, keeps the house locked down, and spends the leftover hours on games kids can actually play — and a fair FPS that doesn't put up with cheaters.</p>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <ul class="cards">
+        <li>
+          <h3>Fair Play</h3>
+          <p>Godot FPS with serious anti-cheat — fair fights only.</p>
+        </li>
+        <li>
+          <h3>Spooky Numbers</h3>
+          <p>Kids' Halloween game. Matrix rain of digits. Soft spooky, not scary.</p>
+        </li>
+        <li>
+          <h3>More soon</h3>
+          <p>Personal tools, research notes, and whatever's cooking after payday.</p>
+        </li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>© <span id="y"></span> Joan Pujols · Bronx</p>
+    </footer>
+  </main>
+  <script src="rain.js"></script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+</body>
+</html>
