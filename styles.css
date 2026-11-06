@@ -3,70 +3,185 @@
   --fg: #c8e6c8;
   --accent: #336633;
   --accent-bright: #4caf50;
+  --accent-glow: rgba(51, 102, 51, 0.4);
   --muted: #7a9a7a;
-  --card: #101810;
+  --card: #0d140d;
+  --card-border: #1a2a1a;
+  --card-hover: #111a11;
 }
+
 * { box-sizing: border-box; }
 html, body { margin: 0; min-height: 100%; }
+
 body {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   background: var(--bg);
   color: var(--fg);
-  line-height: 1.55;
+  line-height: 1.6;
 }
+
 #rain {
   position: fixed; inset: 0; z-index: 0;
   width: 100%; height: 100%;
-  opacity: 0.35; pointer-events: none;
+  opacity: 0.3; pointer-events: none;
 }
+
 main {
   position: relative; z-index: 1;
-  max-width: 720px; margin: 0 auto;
-  padding: 4rem 1.25rem 3rem;
+  max-width: 680px; margin: 0 auto;
+  padding: 3.5rem 1.5rem 2.5rem;
 }
-.hero { margin-bottom: 3rem; }
+
+.hero { margin-bottom: 2.5rem; }
+
 .kicker {
   color: var(--accent-bright);
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
 }
+
+.twin-mark {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  color: var(--accent-bright);
+}
+
 h1 {
-  font-size: clamp(2.2rem, 6vw, 3.2rem);
-  margin: 0.35rem 0 0.75rem;
+  font-size: clamp(2rem, 5.5vw, 2.8rem);
+  margin: 0.3rem 0 0.6rem;
   color: #e8ffe8;
+  letter-spacing: -0.02em;
 }
-.tagline { font-size: 1.1rem; margin: 0; }
-.sub { color: var(--muted); margin: 0.5rem 0 1.5rem; }
-.links { display: flex; flex-wrap: wrap; gap: 0.75rem 1.25rem; }
+
+.tagline {
+  font-size: 1.05rem;
+  margin: 0;
+  color: var(--fg);
+}
+
+.sub {
+  color: var(--muted);
+  margin: 0.4rem 0 1.25rem;
+  font-size: 0.92rem;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+}
+
 .links a {
   color: var(--accent-bright);
   text-decoration: none;
+  padding: 0.25rem 0;
   border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
 }
-.links a:hover { border-bottom-color: var(--accent-bright); }
-section { margin: 2.5rem 0; }
+
+.links a:hover {
+  border-bottom-color: var(--accent-bright);
+}
+
+section { margin: 2rem 0; }
+
 h2 {
   color: var(--accent-bright);
-  font-size: 0.95rem;
-  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.6rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--card-border);
 }
-.cards { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.85rem; }
+
+#about p {
+  max-width: 60ch;
+  font-size: 0.95rem;
+}
+
+.cards {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
 .cards li {
   background: var(--card);
-  border: 1px solid #1e2e1e;
-  border-left: 3px solid var(--accent);
-  padding: 1rem 1.1rem;
-  border-radius: 4px;
+  border: 1px solid var(--card-border);
+  border-left: 2px solid var(--accent);
+  padding: 0.85rem 1rem;
+  border-radius: 6px;
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
-.cards h3 { margin: 0 0 0.35rem; color: #e8ffe8; font-size: 1.05rem; }
-.cards p { margin: 0; color: var(--muted); font-size: 0.95rem; }
-footer {
-  margin-top: 3rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid #1e2e1e;
+
+.cards li:hover {
+  background: var(--card-hover);
+  border-color: var(--accent);
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+
+.cards h3 {
+  margin: 0 0 0.25rem;
+  color: #e8ffe8;
+  font-size: 0.98rem;
+}
+
+.cards p {
+  margin: 0;
   color: var(--muted);
-  font-size: 0.85rem;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+footer {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--card-border);
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+footer > p:first-child {
+  margin: 0 0 0.5rem;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+  color: var(--accent-bright);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.footer-links a:hover {
+  opacity: 0.8;
+}
+
+.twin-line {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  opacity: 0.6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+.twin-line .twin-mark {
+  font-size: 0.75rem;
 }
